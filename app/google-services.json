@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "929078211884",
+    "firebase_url": "https://rentplatform-40e18.firebaseio.com",
+    "project_id": "rentplatform-40e18",
+    "storage_bucket": "rentplatform-40e18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929078211884:android:0ff07fa40f7525a7",
+        "android_client_info": {
+          "package_name": "com.example.sangjin_lee.rentplattform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929078211884-0jh8tcd90kurt4jld05om46q4hnh9mq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyQzdwu7prr_j5EFQWBDlxT8TCikFZdNk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
