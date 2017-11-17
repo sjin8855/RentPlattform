@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "929078211884-ikn1h2henlm0kisiiaq8so0cs2j6728o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sangjin_lee.rentplattform",
+            "certificate_hash": "ec572580a91efcaa1fcdeb0d9162cdcfd460f8b0"
+          }
+        },
+        {
           "client_id": "929078211884-0jh8tcd90kurt4jld05om46q4hnh9mq3.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929078211884-0jh8tcd90kurt4jld05om46q4hnh9mq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
