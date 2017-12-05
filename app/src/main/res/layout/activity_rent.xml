@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/simplebackground"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
@@ -28,7 +27,6 @@
         app:layout_constraintRight_toRightOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-
         android:src="@drawable/ic_icon_whatbackground"/>
 
     <ImageView
@@ -42,31 +40,49 @@
         app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         android:background="@null"
-        android:src="@drawable/ic_icon_textreport"/>
+        android:src="@drawable/ic_icon_textrent"/>
 
 
 
     <TextView
-        android:id="@+id/title_bad_report"
+        android:id="@+id/search_rent"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:gravity="left|center_vertical"
+        android:gravity="center|center_vertical"
         android:paddingLeft="10dp"
-        android:hint="@string/title"
+        android:hint="Search..."
         android:background="@drawable/xml_border"
+
+
         android:singleLine="true"
         android:textSize="20dp"
         app:layout_constraintTop_toBottomOf="@+id/view"
         android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="80dp"
         />
 
-    <TextView
-        android:id="@+id/content_bad_report"
-        android:hint="Content"
+    <Button
+        android:id="@+id/search_button_rent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/search_rent"
+        android:layout_marginLeft="330dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        />
+
+
+    <ScrollView
+        android:id="@+id/content_rent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center|center_vertical"
@@ -74,26 +90,26 @@
 
         android:background="@drawable/xml_border"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/send_bad_report"
+        app:layout_constraintBottom_toTopOf="@+id/apply_button_rent"
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_bad_report"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_rent"
         android:layout_marginBottom="10dp"
         />
 
     <Button
-        android:id="@+id/send_bad_report"
+        android:id="@+id/apply_button_rent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/send"
+        android:text="Apply"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/content_bad_report"/>
+        app:layout_constraintTop_toBottomOf="@+id/content_rent"/>
 </android.support.constraint.ConstraintLayout>
 
 

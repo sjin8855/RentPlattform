@@ -25,10 +25,19 @@
             android:name=".BadReportActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ItemEnrollWithdrawalActivity"
+            android:name=".CheckReportActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MyInfoActivity"
+            android:name=".EnrallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WithdrawActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConfirmItemActivity"
             android:screenOrientation="portrait" />
     </application>
 

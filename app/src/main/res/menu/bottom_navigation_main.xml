@@ -8,20 +8,29 @@
         android:enabled="true"
         android:icon="@drawable/ic_add"
         android:title="Enrall"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always|withText"
+        />
+
+
+    <item
+        android:id="@+id/action_withdraw"
+        android:enabled="true"
+        android:icon="@drawable/ic_withdraw"
+        android:title="Withdraw"
+        app:showAsAction="always|withText"/>
 
     <item
         android:id="@+id/action_report"
         android:enabled="true"
         android:icon="@drawable/ic_report"
         android:title="Report"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always|withText"/>
 
     <item
         android:id="@+id/action_check"
         android:enabled="true"
         android:icon="@drawable/ic_check"
         android:title="Check"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always|withText"/>
 
 </menu>
