@@ -63,12 +63,12 @@
         android:layout_marginRight="30dp"
         />
 
-    <TextView
+    <EditText
         android:id="@+id/content_enrall"
         android:hint="ETC.... Note"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center|center_vertical"
+        android:gravity="center_vertical"
         android:paddingLeft="10dp"
 
         android:background="@drawable/xml_border"
@@ -83,12 +83,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/title_enrall"
         />
 
-    <TextView
+    <EditText
         android:id="@+id/item_name"
         android:hint="Item name"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center|center_vertical"
+        android:gravity="center_vertical"
         android:paddingLeft="10dp"
 
         android:background="@drawable/xml_border"

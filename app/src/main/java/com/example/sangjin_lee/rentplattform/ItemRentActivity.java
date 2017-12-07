@@ -38,6 +38,8 @@ public class ItemRentActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    private String googleUid;
+
     @OnClick(R.id.confirmitem)
     public void confirmitem () {
         Intent intent = new Intent(ItemRentActivity.this, ConfirmItemActivity.class);
@@ -97,6 +99,7 @@ public class ItemRentActivity extends AppCompatActivity{
         setContentView(R.layout.activity_item_rent);
         ButterKnife.bind(this);
 
+        googleUid = getIntent().getStringExtra("id");
         mAuth = FirebaseAuth.getInstance();
         // [START config_signin]
         // Configure Google Sign In
