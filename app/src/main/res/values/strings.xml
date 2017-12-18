@@ -5,8 +5,8 @@
     <string name="send">SEND</string>
     <string name="title">Title :</string>
     <string name="content">Content :</string>
-    <string name="menu_check_report">번호"    "신고제목"    "확인"    "등록일</string>
-    <string name="menu_withdraw">번호"      "등록번호"      "이름"      "비고</string>
-    <string name="menu_confirm_item">번호"   "이름"   "대여일"   "반납예정일</string>
+    <string name="menu_check_report">신고제목"        "확인"        "등록일</string>
+    <string name="menu_withdraw">이름"            "타입"            "상태</string>
+    <string name="menu_confirm_item">"   "이름"     "대여요금"     "대여일"  "반납예정일</string>
     <string name="action_search">Search</string>
 </resources>

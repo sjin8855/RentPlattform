@@ -8,8 +8,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -18,6 +20,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,18 +41,35 @@ import butterknife.OnClick;
 public class ItemRentActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private GoogleApiClient mGoogleApiClient;
+    private DatabaseReference mUserReference;
+    private DatabaseReference mItemReference;
+    private String googleUid;
+    static public String mUserKey;   // 자기 유저키
+    private User Im;
+    private int myAccount;
+    ArrayList<item> itemList;
+
+
+    @BindView(R.id.account)
+    TextView account;
+    //public static List<Diary> diaries = new ArrayList<>();
+
     //대여하기
     @OnClick(R.id.rentbanner)
     public void rent () {
         Intent intent = new Intent(ItemRentActivity.this, RentActivity.class);
+        intent.putExtra("googleid", googleUid);
+        intent.putExtra("itemlist", itemList);
         startActivity(intent);
     }
 
-    private String googleUid;
+
 
     @OnClick(R.id.confirmitem)
     public void confirmitem () {
         Intent intent = new Intent(ItemRentActivity.this, ConfirmItemActivity.class);
+        intent.putExtra("googleid", googleUid);
+        intent.putExtra("itemlist", itemList);
         startActivity(intent);
     }
 
@@ -99,7 +126,11 @@ public class ItemRentActivity extends AppCompatActivity{
         setContentView(R.layout.activity_item_rent);
         ButterKnife.bind(this);
 
+        itemList = new ArrayList<item>();
+
         googleUid = getIntent().getStringExtra("id");
+        mUserReference = FirebaseDatabase.getInstance().getReference().child("Users").child(googleUid);
+
         mAuth = FirebaseAuth.getInstance();
         // [START config_signin]
         // Configure Google Sign In
@@ -113,6 +144,45 @@ public class ItemRentActivity extends AppCompatActivity{
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+        mUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot imdataSnapshot : dataSnapshot.getChildren()) {
+                    Im = imdataSnapshot.getValue(User.class);
+                }
+                String myaccount = String.valueOf(Im.getuserAccount());
+                account.setText(myaccount+"원");
+                if (dataSnapshot.hasChildren()) {
+
+                    mItemReference = FirebaseDatabase.getInstance().getReference().child("Items");
+
+
+                    mItemReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot itemdataSnapshot : dataSnapshot.getChildren()) {
+                                item tempitem = itemdataSnapshot.getValue(item.class);
+                                itemList.add(tempitem);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomnavigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -121,24 +191,32 @@ public class ItemRentActivity extends AppCompatActivity{
                 {
                     case R.id.action_enrall:
                         Intent intent_enrall = new Intent(ItemRentActivity.this,EnrallActivity.class);
+                        intent_enrall.putExtra("googleid", googleUid);
+                        intent_enrall.putExtra("itemlist", itemList);
                         startActivity(intent_enrall);
                         overridePendingTransition(0, 0);
                         break;
 
                     case R.id.action_withdraw:
                         Intent intent_withdraw = new Intent(ItemRentActivity.this,WithdrawActivity.class);
+                        intent_withdraw.putExtra("googleid", googleUid);
+                        intent_withdraw.putExtra("itemlist", itemList);
                         startActivity(intent_withdraw);
                         overridePendingTransition(0, 0);
                         break;
 
                     case R.id.action_report:
                         Intent intent_report = new Intent(ItemRentActivity.this,BadReportActivity.class);
+                        intent_report.putExtra("googleid", googleUid);
+                        intent_report.putExtra("itemlist", itemList);
                         startActivity(intent_report);
                         overridePendingTransition(0, 0);
                         break;
 
                     case R.id.action_check:
                         Intent intent_check = new Intent(ItemRentActivity.this,CheckReportActivity.class);
+                        intent_check.putExtra("googleid", googleUid);
+                        intent_check.putExtra("itemlist", itemList);
                         startActivity(intent_check);
                         overridePendingTransition(0, 0);
                         break;

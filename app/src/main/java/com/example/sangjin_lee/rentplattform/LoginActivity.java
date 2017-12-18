@@ -260,7 +260,7 @@ public class LoginActivity extends DialogActivity implements
 
     public void setDatabaseUser(FirebaseUser firebaseUser) {
 
-        final User user = new User(firebaseUser.getEmail());
+        final User user = new User(firebaseUser.getEmail(), 0);
 
         mUserRef.child(googleUid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -46,7 +46,7 @@
 
 
 
-    <TextView
+    <EditText
         android:id="@+id/title_bad_report"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -64,12 +64,12 @@
         android:layout_marginRight="30dp"
         />
 
-    <TextView
+    <EditText
         android:id="@+id/content_bad_report"
         android:hint="Content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center|center_vertical"
+        android:gravity="left"
         android:paddingLeft="10dp"
 
         android:background="@drawable/xml_border"
